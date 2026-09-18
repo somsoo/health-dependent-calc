@@ -40,6 +40,61 @@
         button, [role="button"], a.btn { min-height: 44px; }
       }
     </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "https://health-dependent.enjoy-onepage.com/#webapp",
+          "name": "2026 은퇴자 건보 피부양자 탈락 판정기 & 지역건보료 계산기",
+          "url": "https://health-dependent.enjoy-onepage.com/",
+          "applicationCategory": "UtilityApplication",
+          "operatingSystem": "All",
+          "browserRequirements": "Requires JavaScript. Requires HTML5.",
+          "description": "은퇴자 공적연금 인상에 따른 피부양자 탈락 여부와 지역가입자 전환 시 월 고지 건보료를 계산합니다.",
+          "image": "https://health-dependent.enjoy-onepage.com/og-image.png",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "KRW"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://health-dependent.enjoy-onepage.com/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "국민연금을 얼마나 받으면 건보 피부양자에서 탈락하나요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "국민연금, 공무원연금 등 공적연금과 기타 금융소득 합계가 연간 2,000만 원(월 166만 6,666원)을 1원이라도 초과하면 피부양자 자격이 완전히 박탈됩니다."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "피부양자에서 탈락하면 건강보험료는 얼마나 나오나요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "지역가입자로 전환되어 연금소득의 50%에 대한 소득보험료(7.19%)와 보유 부동산 재산세 과표(점수당 211.5원), 장기요양보험료(12.95%)가 합산 고지됩니다."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "피부양자 자격을 방어할 수 있는 방법이 있나요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "공적연금 조기 수령으로 연간 수령액을 2,000만 원 이하로 낮추거나, 사적연금(IRP 및 연금저축펀드)은 건보료 부과 소득에서 제외되므로 자산을 이전하는 전략이 있습니다."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased font-sans min-h-screen flex flex-col justify-between">
     <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
@@ -205,15 +260,45 @@
         </section>
     </main>
 
+    <!-- 🔗 딥리서치 토픽 클러스터: 관련 전문 블로그 가이드 역링크 -->
+    <section class="max-w-5xl mx-auto my-6 px-4">
+      <div class="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl border border-blue-200/80 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div class="flex items-center gap-3">
+          <span class="text-2xl flex-shrink-0">📜</span>
+          <div class="text-left">
+            <div class="text-[11px] font-bold text-blue-600 uppercase tracking-wider">공식 심층 리포트 연계</div>
+            <div class="text-xs sm:text-sm font-bold text-slate-800 leading-snug">2026 은퇴자 건강보험 피부양자 유지 기준 및 지역가입자 전환 대응 리포트</div>
+          </div>
+        </div>
+        <a href="https://finance-kr.enjoy-onepage.com/2026/09/18/single-household-head-requirements/" target="_blank" rel="noopener noreferrer" class="shrink-0 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded-xl transition shadow-sm hover:shadow flex items-center gap-1.5">
+          <span>전문 분석 보기</span>
+          <span>→</span>
+        </a>
+      </div>
+    </section>
+
+
     <!-- Bottom Large Ad Banner -->
     <div class="manual-ad-box ad-bottom-banner" style="width: 100%; max-width: 960px; margin: 24px auto 16px; text-align: center;">
         <ins class="adsbygoogle" data-ad-client="ca-pub-2228289204702106" data-ad-format="auto" data-ad-slot="3416334507" data-full-width-responsive="true" style="display:block;"></ins>
         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
 
-    <footer class="bg-white border-t border-slate-200 py-6 text-center text-xs text-slate-500">
-        <p>© 2026 은퇴자 건보 피부양자 판정기. 국민건강보험법 시행규칙 준용.</p>
+    
+    <footer class="bg-white border-t border-slate-200 py-8 px-4 text-center text-xs text-slate-500">
+        <div class="max-w-5xl mx-auto space-y-3">
+            <div class="flex flex-wrap justify-center gap-4 text-xs font-medium text-slate-600">
+                <a class="hover:text-indigo-600 transition-colors" href="/about.html">서비스 소개 및 법정 산정식</a>
+                <span>·</span>
+                <a class="hover:text-indigo-600 transition-colors" href="/privacy.html">개인정보처리방침</a>
+                <span>·</span>
+                <a class="hover:text-indigo-600 transition-colors" href="/terms.html">서비스 이용약관</a>
+            </div>
+            <p>본 계산기는 관계 법령 및 공인 고시를 기준으로 작성된 모의 시뮬레이터이며 실제 행정 심사 결과와 상이할 수 있습니다.</p>
+            <p class="text-[11px] text-slate-400">© 2026 2026 은퇴자 건보 피부양자 탈락 판정기 & 지역건보료 계산기. All rights reserved.</p>
+        </div>
     </footer>
+
 
     <script>
         function parseNum(val) {
