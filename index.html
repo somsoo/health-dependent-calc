@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com">
+    <title>2026 은퇴자 건보 피부양자 탈락 판정기 & 지역건보료 계산기</title>
+    <meta content="2026년 공적연금 및 금융소득 합산 2,000만 원 초과 피부양자 박탈 기준과 지역가입자 전환 시 소득보험료(연금 50% 인정, 7.19%), 재산세 과표(점수당 211.5원, 1억 공제), 장기요양(12.95%)을 즉시 모의계산합니다." name="description"/>
+    <meta content="2026 건강보험 피부양자 자격 조건, 건보료 피부양자 탈락 2000만원, 국민연금 건보료 피부양자 박탈, 지역가입자 건강보험료 점수 계산, 피부양자 재산세 과세표준 5.4억" name="keywords"/>
+    <meta content="index, follow" name="robots"/>
+    <link href="https://health-dependent.enjoy-onepage.com/" rel="canonical"/>
+    <meta content="website" property="og:type"/>
+    <meta content="ko_KR" property="og:locale"/>
+    <meta content="https://health-dependent.enjoy-onepage.com/" property="og:url"/>
+    <meta content="2026 건보 피부양자 & 지역보험료 계산기" property="og:site_name"/>
+    <meta content="2026 은퇴자 건보 피부양자 탈락 판정기 & 지역건보료 계산기" property="og:title"/>
+    <meta content="은퇴자 공적연금 인상에 따른 피부양자 탈락 여부와 지역가입자 전환 시 월 고지 건보료를 계산합니다." property="og:description"/>
+    <meta content="https://health-dependent.enjoy-onepage.com/og-image.png" property="og:image"/>
+    <meta content="summary_large_image" name="twitter:card"/>
+    <meta content="2026 은퇴자 건보 피부양자 탈락 판정기 & 지역건보료 계산기" name="twitter:title"/>
+    <meta content="국민건강보험법 시행규칙 별표 1의2 기준 피부양자 적격 판정 및 지역건보료 산출" name="twitter:description"/>
+    <meta content="https://health-dependent.enjoy-onepage.com/og-image.png" name="twitter:image"/>
+    <link href="/favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="/icon.png" rel="apple-touch-icon"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2228289204702106"></script>
+    <style id="layout-shield">
+      html, body { max-width: 100%; overflow-x: hidden; }
+      .manual-ad-box { width: 100%; max-width: 960px; margin-left: auto; margin-right: auto; text-align: center; overflow: hidden; }
+      .manual-ad-box ins { max-width: 100% !important; overflow: hidden !important; }
+      :focus-visible { outline: 2px solid #3b82f6 !important; outline-offset: 2px !important; }
+      input:focus-visible, select:focus-visible, textarea:focus-visible, button:focus-visible { outline: 2px solid #2563eb !important; outline-offset: 1px !important; }
+    </style>
+    <style id="mobile-hardening-shield">
+      body, h1, h2, h3, h4, p, span, label { word-break: keep-all; overflow-wrap: break-word; }
+      button, [role="button"], a.btn { white-space: nowrap; word-break: keep-all; }
+      @media (max-width: 640px) {
+        input, select, textarea { font-size: 16px !important; }
+        button, [role="button"], a.btn { min-height: 44px; }
+      }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans min-h-screen flex flex-col justify-between">
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+            <a class="flex items-center gap-2 text-slate-900 font-bold text-lg hover:text-cyan-600 transition" href="/">
+                <span class="w-8 h-8 rounded-lg bg-cyan-600 text-white flex items-center justify-center font-black text-sm shadow-sm">건보</span>
+                <span>은퇴자 건보 피부양자 판정기</span>
+            </a>
+            <div class="flex items-center gap-2 text-xs text-slate-500 font-medium">
+                <span class="inline-block w-2 h-2 rounded-full bg-cyan-500"></span> 점수당 211.5원 반영
+            </div>
+        </div>
+    </header>
+
+    <!-- Top Ad Banner -->
+    <div class="manual-ad-box ad-top-banner" style="width: 100%; max-width: 960px; margin: 8px auto 16px; text-align: center;">
+        <ins class="adsbygoogle" data-ad-client="ca-pub-2228289204702106" data-ad-format="horizontal" data-ad-slot="3824727725" data-full-width-responsive="true" style="display:inline-block;width:100%;height:60px;"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <section class="max-w-5xl mx-auto px-4 pt-4 pb-2 w-full">
+        <div class="border-b border-slate-200 pb-4">
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-cyan-100 text-cyan-800 mb-2">
+                <span>국민건강보험법 시행규칙 별표 1의2 & 제69조/제72조 준용</span>
+            </div>
+            <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+                2026 은퇴자 건강보험 피부양자 판정 & 지역건보료 계산기
+            </h1>
+            <p class="text-slate-600 text-sm mt-1">
+                연소득 2,000만 원 초과 여부와 부동산 과세표준을 입력하여 피부양자 유지 가능성과 탈락 시 월 지역보험료를 산출합니다.
+            </p>
+        </div>
+    </section>
+
+    <main class="max-w-5xl mx-auto px-4 py-4 w-full flex-grow">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+            <!-- Left: Inputs (6 cols) -->
+            <section class="lg:col-span-6 bg-white rounded-2xl p-5 shadow-sm border border-slate-200 space-y-4">
+                <h2 class="text-base font-bold text-slate-900 flex items-center gap-2">
+                    <span class="w-2 h-4 bg-cyan-600 rounded-full"></span>
+                    은퇴자 소득 및 보유 재산 입력
+                </h2>
+
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1" for="monthlyPension">월 공적연금 수령액 (국민·공무원·사학·군인연금)</label>
+                    <div class="relative">
+                        <input type="text" id="monthlyPension" value="1,800,000" class="w-full px-3 py-2.5 bg-white border border-slate-300 rounded-lg text-slate-900 font-bold text-base focus:ring-2 focus:ring-cyan-500" placeholder="예: 1,800,000">
+                        <span class="absolute right-3 top-2.5 text-xs text-slate-400 font-normal">원/월</span>
+                    </div>
+                    <span class="text-[11px] text-slate-400 mt-0.5 block">연간 환산: <span id="annualPensionText" class="font-semibold text-slate-700">21,600,000원</span></span>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1" for="annualFinanceIncome">연간 금융소득 (이자·배당소득 합계)</label>
+                    <div class="relative">
+                        <input type="text" id="annualFinanceIncome" value="0" class="w-full px-3 py-2.5 bg-white border border-slate-300 rounded-lg text-slate-900 font-bold text-base focus:ring-2 focus:ring-cyan-500" placeholder="예: 0">
+                        <span class="absolute right-3 top-2.5 text-xs text-slate-400 font-normal">원/년</span>
+                    </div>
+                    <span class="text-[11px] text-slate-400 mt-0.5 block">연 1,000만 원 초과 시 전액 소득 합산</span>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1" for="propertyPrice">보유 부동산 공시가격 (주택·토지·건축물)</label>
+                    <div class="relative">
+                        <input type="text" id="propertyPrice" value="800,000,000" class="w-full px-3 py-2.5 bg-white border border-slate-300 rounded-lg text-slate-900 font-bold text-base focus:ring-2 focus:ring-cyan-500" placeholder="예: 800,000,000">
+                        <span class="absolute right-3 top-2.5 text-xs text-slate-400 font-normal">원</span>
+                    </div>
+                    <span class="text-[11px] text-slate-400 mt-0.5 block">재산세 과표(공정시장가액 60% 적용): <span id="taxBaseText" class="font-semibold text-slate-700">480,000,000원</span></span>
+                </div>
+
+                <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200">
+                    <span class="text-xs font-bold text-slate-800 block mb-1">사업자등록 여부</span>
+                    <label class="flex items-center gap-2 cursor-pointer mt-1">
+                        <input type="checkbox" id="hasBizReg" class="w-4 h-4 text-cyan-600 rounded border-slate-300" aria-label="사업자등록증 보유">
+                        <span class="text-xs text-slate-700">사업자등록 보유 (사업소득 1원이라도 발생 시 즉시 탈락)</span>
+                    </label>
+                </div>
+
+                <div class="flex gap-2 pt-2">
+                    <button id="calcBtn" type="button" class="flex-1 py-3.5 px-4 bg-cyan-600 hover:bg-cyan-700 text-white font-bold rounded-xl shadow-md transition text-base flex items-center justify-center gap-2">
+                        피부양자 자격 및 보험료 계산
+                    </button>
+                    <button id="resetBtn" type="button" class="px-4 py-3.5 bg-slate-100 hover:bg-slate-200 text-slate-600 font-semibold rounded-xl transition text-sm">
+                        초기화
+                    </button>
+                </div>
+            </section>
+
+            <!-- Right: Decision Receipt (6 cols) -->
+            <section class="lg:col-span-6 lg:sticky lg:top-20 space-y-4">
+                <div class="bg-white rounded-2xl p-6 shadow-md border-2 border-cyan-500/30">
+                    <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-3">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">피부양자 자격 판정 결과</span>
+                        <span id="qualBadge" class="text-xs font-black px-2.5 py-1 rounded bg-rose-100 text-rose-800">자격 탈락 (지역 전환)</span>
+                    </div>
+
+                    <div class="mb-4">
+                        <span class="text-xs text-slate-500 block mb-1">탈락 시 매월 예상 지역건보료 고지액</span>
+                        <div class="flex items-baseline gap-2">
+                            <span id="resTotalHealthBill" class="text-3xl sm:text-4xl font-black text-cyan-600">260,610</span>
+                            <span class="text-lg font-bold text-slate-800">원 / 월</span>
+                        </div>
+                        <span class="text-xs text-slate-500">연간 고정 지출: <span id="resAnnualBill" class="font-bold text-slate-900">3,127,320원</span></span>
+                    </div>
+
+                    <!-- Breakdown Table -->
+                    <div class="space-y-2.5 text-xs border-t border-b border-slate-100 py-3.5 mb-4">
+                        <div class="flex justify-between text-slate-600">
+                            <span>연간 합산 소득</span>
+                            <span id="resTotalIncome" class="font-bold text-slate-900">21,600,000원</span>
+                        </div>
+                        <div class="flex justify-between text-slate-600">
+                            <span>소득 기준 판정 (연 2,000만 원 이하)</span>
+                            <span id="resIncomePass" class="font-bold text-rose-600">기준 초과 (탈락)</span>
+                        </div>
+                        <div class="flex justify-between text-slate-600">
+                            <span>재산세 과세표준 (5.4억/9억)</span>
+                            <span id="resPropertyPass" class="font-bold text-emerald-600">4.8억 (기준 충족)</span>
+                        </div>
+                        <div class="flex justify-between text-slate-700 pt-2 border-t border-slate-100">
+                            <span>월 소득보험료 (연금 50% 인정, 7.19%)</span>
+                            <span id="resIncomeFee" class="font-bold text-slate-900">64,710원</span>
+                        </div>
+                        <div class="flex justify-between text-slate-700">
+                            <span>월 재산보험료 (과표 1억 공제 후 785점)</span>
+                            <span id="resPropertyFee" class="font-bold text-slate-900">166,020원</span>
+                        </div>
+                        <div class="flex justify-between text-slate-700">
+                            <span>장기요양보험료 (건보료의 12.95%)</span>
+                            <span id="resLtcFee" class="font-bold text-slate-900">29,880원</span>
+                        </div>
+                    </div>
+
+                    <!-- Strategic Advice -->
+                    <div id="adviceBox" class="p-3 bg-cyan-50 rounded-xl border border-cyan-200 text-xs text-cyan-900 space-y-1">
+                        <span class="font-bold block">💡 은퇴자 건보료 방어 솔루션</span>
+                        <p id="adviceText">공적연금 조기수령 감액 또는 사적연금(IRP 등 비과세 소득) 분산 시 연 312만 원의 건보료 지출을 방어할 수 있습니다.</p>
+                    </div>
+
+                    <button id="copyResultBtn" type="button" class="w-full mt-4 py-3 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-2 transition">
+                        결과 전체 복사하기
+                    </button>
+                </div>
+            </section>
+        </div>
+
+        <!-- Guide -->
+        <section class="mt-12 bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
+            <h2 class="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
+                <span class="w-2 h-4 bg-cyan-600 rounded-full"></span>
+                건강보험 피부양자 인정기준 & 지역보험료 부과체계
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm text-slate-600">
+                <div class="p-4 bg-slate-50 rounded-xl">
+                    <h3 class="font-bold text-slate-900 mb-1">1. 연소득 2,000만 원의 함정</h3>
+                    <p>국민연금, 공무원연금 등 공적연금은 물가상승률에 따라 매년 인상되므로, 소득 합산율 100% 규정에 의해 월 166만 6,666원을 넘는 순간 피부양자 자격이 완전히 박탈됩니다.</p>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-xl">
+                    <h3 class="font-bold text-slate-900 mb-1">2. 지역보험료 산정 시 50% 인정</h3>
+                    <p>피부양자 심사 시에는 연금소득이 100% 반영되지만, 탈락 후 지역가입자 보험료를 매길 때는 연금소득의 50%만 부과 소득으로 산입되어 보험료율(7.19%)이 적용됩니다.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Bottom Large Ad Banner -->
+    <div class="manual-ad-box ad-bottom-banner" style="width: 100%; max-width: 960px; margin: 24px auto 16px; text-align: center;">
+        <ins class="adsbygoogle" data-ad-client="ca-pub-2228289204702106" data-ad-format="auto" data-ad-slot="3416334507" data-full-width-responsive="true" style="display:block;"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <footer class="bg-white border-t border-slate-200 py-6 text-center text-xs text-slate-500">
+        <p>© 2026 은퇴자 건보 피부양자 판정기. 국민건강보험법 시행규칙 준용.</p>
+    </footer>
+
+    <script>
+        function parseNum(val) {
+            if (!val) return 0;
+            return parseInt(val.toString().replace(/,/g, ''), 10) || 0;
+        }
+        function fmtNum(n) {
+            return Math.round(n).toLocaleString('ko-KR');
+        }
+
+        ['monthlyPension', 'annualFinanceIncome', 'propertyPrice'].forEach(id => {
+            document.getElementById(id).addEventListener('input', (e) => {
+                let v = parseNum(e.target.value);
+                e.target.value = v ? v.toLocaleString('ko-KR') : '';
+                calculate();
+            });
+        });
+
+        // Simplified 60-grade property points calculation for Korea National Health Insurance
+        function getPropertyPoints(taxBaseAfterExempt) {
+            if (taxBaseAfterExempt <= 0) return 0;
+            let valM = taxBaseAfterExempt / 100000000; // in 100m KRW
+            if (valM <= 0.5) return 220;
+            if (valM <= 1.0) return 310;
+            if (valM <= 2.0) return 460;
+            if (valM <= 3.0) return 600;
+            if (valM <= 4.0) return 785; // 3.8억 -> 785 points
+            if (valM <= 6.0) return 980;
+            if (valM <= 9.0) return 1200;
+            return 1450;
+        }
+
+        function calculate() {
+            const mPension = parseNum(document.getElementById('monthlyPension').value);
+            const finIncome = parseNum(document.getElementById('annualFinanceIncome').value);
+            const propPrice = parseNum(document.getElementById('propertyPrice').value);
+            const hasBiz = document.getElementById('hasBizReg').checked;
+
+            const annualPension = mPension * 12;
+            document.getElementById('annualPensionText').textContent = fmtNum(annualPension) + '원';
+
+            // Fin income added if > 10m
+            const countedFinIncome = finIncome > 10000000 ? finIncome : 0;
+            const totalIncome = annualPension + countedFinIncome;
+            document.getElementById('resTotalIncome').textContent = fmtNum(totalIncome) + '원';
+
+            // Property Tax Base (60% of official price)
+            const taxBase = propPrice * 0.60;
+            document.getElementById('taxBaseText').textContent = fmtNum(taxBase) + '원';
+
+            // Qualification Check
+            let isIncomePassed = totalIncome <= 20000000;
+            let isPropertyPassed = false;
+
+            if (taxBase <= 540000000) {
+                isPropertyPassed = isIncomePassed;
+            } else if (taxBase <= 900000000) {
+                isPropertyPassed = (totalIncome <= 10000000);
+            } else {
+                isPropertyPassed = false;
+            }
+
+            if (hasBiz) {
+                isIncomePassed = false;
+                isPropertyPassed = false;
+            }
+
+            const isQualified = isIncomePassed && isPropertyPassed;
+
+            if (isQualified) {
+                document.getElementById('qualBadge').textContent = '피부양자 자격 유지 적격';
+                document.getElementById('qualBadge').className = 'text-xs font-black px-2.5 py-1 rounded bg-emerald-100 text-emerald-800';
+                document.getElementById('resIncomePass').textContent = '기준 충족 (2천만 이하)';
+                document.getElementById('resIncomePass').className = 'font-bold text-emerald-600';
+                document.getElementById('resTotalHealthBill').textContent = '0';
+                document.getElementById('resAnnualBill').textContent = '0원 (직장 피부양자 유지)';
+                document.getElementById('adviceText').textContent = '현재 피부양자 요건을 충족하여 월 건보료가 부과되지 않습니다. 공적연금 인상 시 연 2,000만 원을 초과하지 않도록 유의하세요.';
+            } else {
+                document.getElementById('qualBadge').textContent = '자격 탈락 (지역 전환 고지)';
+                document.getElementById('qualBadge').className = 'text-xs font-black px-2.5 py-1 rounded bg-rose-100 text-rose-800';
+                document.getElementById('resIncomePass').textContent = hasBiz ? '사업자등록 탈락' : '기준 초과 (연 2천만 원 초과)';
+                document.getElementById('resIncomePass').className = 'font-bold text-rose-600';
+
+                // Calculate Local Insurance
+                // 1. Income part: pension 50% included, 7.19% rate / 12
+                const countedPensionForFee = annualPension * 0.50;
+                const monthlyIncomeFee = ((countedPensionForFee + countedFinIncome) * 0.0719) / 12;
+
+                // 2. Property part: exempt 100m KRW
+                const taxableProp = Math.max(0, taxBase - 100000000);
+                const propPoints = getPropertyPoints(taxableProp);
+                const monthlyPropFee = propPoints * 211.5;
+
+                const baseHealthBill = monthlyIncomeFee + monthlyPropFee;
+                const ltcFee = baseHealthBill * 0.1295;
+                const totalMonthlyBill = baseHealthBill + ltcFee;
+
+                document.getElementById('resIncomeFee').textContent = fmtNum(monthlyIncomeFee) + '원';
+                document.getElementById('resPropertyFee').textContent = fmtNum(monthlyPropFee) + '원';
+                document.getElementById('resLtcFee').textContent = fmtNum(ltcFee) + '원';
+                document.getElementById('resTotalHealthBill').textContent = fmtNum(totalMonthlyBill);
+                document.getElementById('resAnnualBill').textContent = fmtNum(totalMonthlyBill * 12) + '원';
+                document.getElementById('adviceText').textContent = '공적연금 분산(사적연금 IRP 이전 등)을 통해 연간 2,000만 원 이하로 유지할 경우 연간 약 ' + fmtNum(totalMonthlyBill * 12) + '원의 건보료를 지킬 수 있습니다.';
+            }
+
+            document.getElementById('resPropertyPass').textContent = (taxBase / 100000000).toFixed(1) + '억 원 (5.4억/9억 기준)';
+        }
+
+        document.getElementById('hasBizReg').addEventListener('change', calculate);
+        document.getElementById('calcBtn').addEventListener('click', calculate);
+
+        document.getElementById('resetBtn').addEventListener('click', () => {
+            document.getElementById('monthlyPension').value = '1,800,000';
+            document.getElementById('annualFinanceIncome').value = '0';
+            document.getElementById('propertyPrice').value = '800,000,000';
+            document.getElementById('hasBizReg').checked = false;
+            calculate();
+            showToastNotification('기본 입력값으로 초기화되었습니다.');
+        });
+
+        function showToastNotification(msg) {
+            let toast = document.getElementById('global-ux-toast');
+            if (!toast) {
+                toast = document.createElement('div');
+                toast.id = 'global-ux-toast';
+                toast.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#fff;padding:12px 24px;border-radius:9999px;font-size:14px;font-weight:600;box-shadow:0 10px 25px rgba(0,0,0,0.2);z-index:9999;transition:all 0.3s ease;opacity:0;pointer-events:none;';
+                document.body.appendChild(toast);
+            }
+            toast.textContent = msg;
+            toast.style.opacity = '1';
+            toast.style.transform = 'translateX(-50%) translateY(0)';
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateX(-50%) translateY(10px)';
+            }, 2200);
+        }
+
+        document.getElementById('copyResultBtn').addEventListener('click', () => {
+            const badge = document.getElementById('qualBadge').textContent;
+            const bill = document.getElementById('resTotalHealthBill').textContent;
+            const text = `[2026 은퇴자 건보 피부양자 판정 결과]\n• 판정 상태: ${badge}\n• 월 예상 지역건보료: ${bill}원/월\n• 연간 부담액: ${document.getElementById('resAnnualBill').textContent}\n\n👉 바로가기: ${window.location.href}`;
+            navigator.clipboard.writeText(text).then(() => {
+                showToastNotification('판정 결과가 클립보드에 복사되었습니다! 🎉');
+            }).catch(() => {
+                showToastNotification('복사 완료: ' + window.location.href);
+            });
+        });
+
+        calculate();
+    </script>
+</body>
+</html>
