@@ -30,6 +30,25 @@
       .manual-ad-box ins { max-width: 100% !important; overflow: hidden !important; }
       :focus-visible { outline: 2px solid #3b82f6 !important; outline-offset: 2px !important; }
       input:focus-visible, select:focus-visible, textarea:focus-visible, button:focus-visible { outline: 2px solid #2563eb !important; outline-offset: 1px !important; }
+      /* Remodel components */
+      .extra-section { margin-top: 2rem; margin-bottom: 2rem; }
+      .extra-table-wrap { width: 100%; border-radius: 0.75rem; border: 1px solid #e2e8f0; background: #fff; overflow: hidden; }
+      .extra-table { table-layout: fixed; width: 100%; border-collapse: collapse; text-align: right; word-break: keep-all; }
+      .extra-table th { background: #f8fafc; color: #475569; font-size: 0.68rem; font-weight: 700; padding: 0.45rem 0.2rem; border-bottom: 1px solid #e2e8f0; text-align: center; line-height: 1.25; }
+      .extra-table td { padding: 0.45rem 0.2rem; border-bottom: 1px solid #f1f5f9; color: #1e293b; font-size: 0.68rem; }
+      .extra-table td.td-col1 { text-align: left; font-weight: 600; padding-left: 0.4rem; }
+      .extra-table td.td-val { font-size: 0.66rem; font-weight: 600; letter-spacing: -0.02em; }
+      .extra-table tr.active-preset { background: #eff6ff; font-weight: 700; }
+      .checkpoints-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 1rem; padding: 1.25rem; margin-top: 1.5rem; }
+      .sublinks-section { margin-top: 2rem; margin-bottom: 2rem; }
+      .sublinks-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+      @media (min-width: 768px) { .sublinks-grid { grid-template-columns: 1fr 1fr; } }
+      .sublinks-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 1rem; padding: 1.25rem; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); }
+      .sublinks-card h3 { font-size: 0.9rem; font-weight: 700; color: #0f172a; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; }
+      .sublinks-card ul { display: flex; flex-direction: column; gap: 0.35rem; list-style: none; padding: 0; margin: 0; }
+      .sublink-item a { display: block; font-size: 0.8rem; color: #0284c7; text-decoration: none; padding: 0.35rem 0.5rem; border-radius: 0.5rem; transition: background 0.15s; word-break: keep-all; }
+      .sublink-item a:hover { background: #f0f9ff; text-decoration: underline; }
+      .sublink-item a.current-page { font-weight: 700; color: #0369a1; background: #f0f9ff; }
     </style>
     <style id="mobile-hardening-shield">
       body, h1, h2, h3, h4, p, span, label { word-break: keep-all; overflow-wrap: break-word; }
@@ -133,7 +152,8 @@
         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
 
-    <section class="max-w-5xl mx-auto px-4 pt-4 pb-2 w-full">
+    <!-- PAGE:HERO START -->
+<section class="max-w-5xl mx-auto px-4 pt-4 pb-2 w-full">
         <div class="border-b border-slate-200 pb-4">
             <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-cyan-100 text-cyan-800 mb-2">
                 <span>국민건강보험법 시행규칙 별표 1의2 & 제69조/제72조 준용</span>
@@ -146,6 +166,7 @@
             </p>
         </div>
     </section>
+    <!-- PAGE:HERO END -->
 
     <main class="max-w-5xl mx-auto px-4 py-4 w-full flex-grow">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
@@ -277,6 +298,37 @@
             </div>
         </section>
     
+
+        <!-- PAGE:EXTRA START --><!-- PAGE:EXTRA END -->
+
+        <!-- PAGE:SUBLINKS START -->
+        <!-- Navigation Sublinks -->
+        <section class="sublinks-section">
+            <div class="sublinks-grid">
+                <div class="sublinks-card">
+                    <h3>📊 월 공적연금·재산 구간별 피부양자 판정 & 지역건보료 표</h3>
+                    <ul>
+                        <li class="sublink-item"><a href="/pension-150.html">연금 월 150만 원 (연 1,800만 · 자격 유지)</a></li>
+                        <li class="sublink-item"><a href="/pension-170.html">연금 월 170만 원 (연 2,040만 · 탈락 경계)</a></li>
+                        <li class="sublink-item"><a href="/pension-200.html">연금 월 200만 원 (연 2,400만 · 지역건보료)</a></li>
+                        <li class="sublink-item"><a href="/pension-250.html">연금 월 250만 원 (공무원·사학·국민연금)</a></li>
+                        <li class="sublink-item"><a href="/pension-300.html">연금 월 300만 원 (연 3,600만 · 공시가 10억)</a></li>
+                        <li class="sublink-item"><a href="/prop-900m-limit.html">공시가 9억~15억 (과표 5.4억~9억 · 소득 1천만)</a></li>
+                    </ul>
+                </div>
+                <div class="sublinks-card">
+                    <h3>📌 재산 9억 초과·금융소득·사업자 & IRP 방어 가이드</h3>
+                    <ul>
+                        <li class="sublink-item"><a href="/prop-1500m-over.html">공시가 15억+ (과표 9억 초과) 지역건보료</a></li>
+                        <li class="sublink-item"><a href="/guide-finance-income-10m.html">이자·배당 금융소득 연 1,000만 원 합산 기준</a></li>
+                        <li class="sublink-item"><a href="/guide-business-income-zero.html">사업자등록·임대소득 1원 즉시 탈락 규정</a></li>
+                        <li class="sublink-item"><a href="/guide-irp-private-pension.html">사적연금(IRP·연금저축) 비과세 건보료 방어</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- PAGE:SUBLINKS END -->
+
     <!-- 심층 가이드북 바로가기 (4-1-4 헌법 준수) -->
     <div class="mt-8 mb-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl border border-blue-100 flex flex-col sm:flex-row items-center justify-between gap-4">
       <div>
@@ -300,33 +352,35 @@
 <!-- E-E-A-T FAQ Section (16-5 헌법 준수) -->
     <section class="mt-8 mb-8 space-y-3">
       <h2 class="text-xl font-bold text-gray-900 mb-4">자주 묻는 질문 (FAQ)</h2>
+      <!-- PAGE:FAQ START -->
       <details class="bg-gray-50 p-4 rounded-xl border border-gray-200 group">
         <summary class="font-bold text-gray-800 cursor-pointer list-none flex justify-between items-center">
-          <span>입력한 데이터가 외부 서버에 저장되나요?</span>
+          <span>국민연금을 얼마나 받으면 건보 피부양자에서 탈락하나요?</span>
           <span class="text-blue-600 group-open:rotate-180 transition transform">▼</span>
         </summary>
         <p class="mt-3 text-gray-600 text-xs leading-relaxed">
-          아닙니다. 100% 사용자의 기기 브라우저 메모리 내에서만 연산되며, 어떠한 금융/개인 데이터도 외부로 전송되지 않습니다.
+          국민연금, 공무원연금 등 공적연금과 기타 금융소득 합계가 연간 2,000만 원(월 166만 6,666원)을 1원이라도 초과하면 피부양자 자격이 완전히 박탈됩니다.
         </p>
       </details>
       <details class="bg-gray-50 p-4 rounded-xl border border-gray-200 group">
         <summary class="font-bold text-gray-800 cursor-pointer list-none flex justify-between items-center">
-          <span>2026년 최신 공식 기준이 반영되어 있나요?</span>
-          <summary class="text-blue-600 group-open:rotate-180 transition transform"></summary>
-        </summary>
-        <p class="mt-3 text-gray-600 text-xs leading-relaxed">
-          네, 최신 고시된 법령 및 공공 기준 요율을 상수로 반영하여 정확한 산출 결과를 제공합니다.
-        </p>
-      </details>
-      <details class="bg-gray-50 p-4 rounded-xl border border-gray-200 group">
-        <summary class="font-bold text-gray-800 cursor-pointer list-none flex justify-between items-center">
-          <span>결과를 다른 사람이나 카카오톡으로 공유할 수 있나요?</span>
+          <span>피부양자에서 탈락하면 건강보험료는 얼마나 나오나요?</span>
           <span class="text-blue-600 group-open:rotate-180 transition transform">▼</span>
         </summary>
         <p class="mt-3 text-gray-600 text-xs leading-relaxed">
-          '결과 복사하기' 버튼을 누르면 정돈된 요약 텍스트와 바로가기 주소가 클립보드에 자동 복사됩니다.
+          지역가입자로 전환되어 연금소득의 50%에 대한 소득보험료(7.19%)와 보유 부동산 재산세 과표(점수당 211.5원), 장기요양보험료(12.95%)가 합산 고지됩니다.
         </p>
       </details>
+      <details class="bg-gray-50 p-4 rounded-xl border border-gray-200 group">
+        <summary class="font-bold text-gray-800 cursor-pointer list-none flex justify-between items-center">
+          <span>피부양자 자격을 방어할 수 있는 방법이 있나요?</span>
+          <span class="text-blue-600 group-open:rotate-180 transition transform">▼</span>
+        </summary>
+        <p class="mt-3 text-gray-600 text-xs leading-relaxed">
+          공적연금 조기 수령으로 연간 수령액을 2,000만 원 이하로 낮추거나, 사적연금(IRP 및 연금저축펀드)은 건보료 부과 소득에서 제외되므로 자산을 이전하는 전략이 있습니다.
+        </p>
+      </details>
+      <!-- PAGE:FAQ END -->
     </section>
 
   </main>
@@ -338,12 +392,11 @@
           <span class="text-2xl flex-shrink-0">📜</span>
           <div class="text-left">
             <div class="text-[11px] font-bold text-blue-600 uppercase tracking-wider">공식 심층 리포트 연계</div>
-            <div class="text-xs sm:text-sm font-bold text-slate-800 leading-snug">2026 은퇴자 건강보험 피부양자 유지 기준 및 지역가입자 전환 대응 리포트</div>
+            <div class="text-xs sm:text-sm font-bold text-slate-800 leading-snug">퇴직 후 건강보험료 임의계속가입 vs 지역가입자 비교 계산기</div>
           </div>
         </div>
-        <a href="https://finance-kr.enjoy-onepage.com/2026/09/18/single-household-head-requirements/" target="_blank" rel="noopener noreferrer" class="shrink-0 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded-xl transition shadow-sm hover:shadow flex items-center gap-1.5">
-          <span>전문 분석 보기</span>
-          <span>→</span>
+        <a href="https://retiree-health-insurance-calc.enjoy-onepage.com/" target="_blank" rel="noopener noreferrer" class="shrink-0 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded-xl transition shadow-sm hover:shadow flex items-center gap-1.5">
+          <span>임의계속가입 비교 →</span>
         </a>
       </div>
     </section>
@@ -446,6 +499,9 @@
                 document.getElementById('resIncomePass').className = 'font-bold text-emerald-600';
                 document.getElementById('resTotalHealthBill').textContent = '0';
                 document.getElementById('resAnnualBill').textContent = '0원 (직장 피부양자 유지)';
+                document.getElementById('resIncomeFee').textContent = '0원';
+                document.getElementById('resPropertyFee').textContent = '0원';
+                document.getElementById('resLtcFee').textContent = '0원';
                 document.getElementById('adviceText').textContent = '현재 피부양자 요건을 충족하여 월 건보료가 부과되지 않습니다. 공적연금 인상 시 연 2,000만 원을 초과하지 않도록 유의하세요.';
             } else {
                 document.getElementById('qualBadge').textContent = '자격 탈락 (지역 전환 고지)';
