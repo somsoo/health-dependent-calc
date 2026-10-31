@@ -1,0 +1,28 @@
+{
+ "app": "health-dependent-calc",
+ "host": "health-dependent.enjoy-onepage.com",
+ "watch": false,
+ "status": "unverified",
+ "checked": "",
+ "soft_days": 60,
+ "hard_days": 120,
+ "grace_days": 31,
+ "hide": [],
+ "pages": [
+  "guide-business-income-zero.html",
+  "guide-finance-income-10m.html",
+  "guide-irp-private-pension.html",
+  "index.html",
+  "pension-150.html",
+  "pension-170.html",
+  "pension-200.html",
+  "pension-250.html",
+  "pension-300.html",
+  "prop-1500m-over.html",
+  "prop-900m-limit.html"
+ ],
+ "values": {},
+ "sources": {},
+ "valid_until": "2026-12-31",
+ "note": "이 페이지의 보험료율과 기준 금액은 2026년 기준"
+}
