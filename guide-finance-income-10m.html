@@ -88,7 +88,7 @@
           "name": "금융소득이 연 1,000만 원 이하이면 건강보험료에 전혀 반영되지 않나요?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "네, 비과세 및 분리과세 기준에 의해 금융소득이 연 1,000만 원 이하인 경우 피부양자 소득 판정에서 제외됩니다."
+            "text": "네. 시행규칙 제44조 제1항 단서에 따라 이자·배당소득 합계가 연 1,000만 원 이하이면 소득에 넣지 않으므로, 피부양자 판정과 지역보험료 모두에 반영되지 않습니다."
           }
         },
         {
@@ -104,7 +104,7 @@
           "name": "ISA(개인종합자산관리계좌)나 비과세 종합저축의 수익도 합산되나요?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "조세특례제한법상 비과세 또는 분리과세 혜택이 적용되는 금융계좌 수익은 건보료 부과소득 합산에서 제외됩니다."
+            "text": "법령상 비과세 소득은 소득 산정에서 빠집니다(시행령 제41조 제1항). ISA처럼 분리과세되는 수익을 어떻게 보는지는 이 사이트가 법령 원문에서 확인하지 못했으니 공단에 확인하세요."
           }
         }
       ]
@@ -156,7 +156,7 @@
     <section class="max-w-5xl mx-auto px-4 pt-4 pb-2 w-full">
         <div class="border-b border-slate-200 pb-4">
             <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-cyan-100 text-cyan-800 mb-2">
-                <span>국민건강보험법 시행규칙 별표 1의2 & 제69조/제72조 준용</span>
+                <span>국민건강보험법 시행규칙 별표 1의2 · 시행령 제44조·별표 4 (2026년)</span>
             </div>
             <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
                 이자·배당 금융소득 1,000만 원 초과 피부양자 소득 합산 판정기
@@ -196,19 +196,26 @@
                 </div>
 
                 <div>
-                    <label class="block text-xs font-semibold text-slate-700 mb-1" for="propertyPrice">보유 부동산 공시가격 (주택·토지·건축물)</label>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1" for="propertyPrice" id="propertyLabel">보유 부동산 공시가격 (시가표준액)</label>
                     <div class="relative">
                         <input type="text" id="propertyPrice" value="600,000,000" class="w-full px-3 py-2.5 bg-white border border-slate-300 rounded-lg text-slate-900 font-bold text-base focus:ring-2 focus:ring-cyan-500" placeholder="예: 800,000,000">
                         <span class="absolute right-3 top-2.5 text-xs text-slate-400 font-normal">원</span>
                     </div>
-                    <span class="text-[11px] text-slate-400 mt-0.5 block">재산세 과표(공정시장가액 60% 적용): <span id="taxBaseText" class="font-semibold text-slate-700">360,000,000원</span></span>
+                    <span class="text-[11px] text-slate-400 mt-0.5 block">재산세 과표(<span id="fmvText">주택 60%</span>): <span id="taxBaseText" class="font-semibold text-slate-700">360,000,000원</span></span>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1" for="propType" style="margin-top:10px">부동산 종류 (재산세 과세표준 계산 방법)</label>
+                    <select id="propType" class="w-full px-3 py-2.5 bg-white border border-slate-300 rounded-lg text-slate-900 font-bold text-base focus:ring-2 focus:ring-cyan-500">
+                        <option value="one">1세대 1주택 (43~45%)</option>
+                        <option value="house" selected>그 밖의 주택 (60%)</option>
+                        <option value="land">토지·건축물 (70%)</option>
+                        <option value="base">과세표준 직접 입력</option>
+                    </select>
                 </div>
 
                 <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200">
                     <span class="text-xs font-bold text-slate-800 block mb-1">사업자등록 여부</span>
                     <label class="flex items-center gap-2 cursor-pointer mt-1">
-                        <input type="checkbox" id="hasBizReg" class="w-4 h-4 text-cyan-600 rounded border-slate-300" aria-label="사업자등록증 보유">
-                        <span class="text-xs text-slate-700">사업자등록 보유 (사업소득 1원이라도 발생 시 즉시 탈락)</span>
+                        <input type="checkbox" id="hasBizReg" class="w-4 h-4 text-cyan-600 rounded border-slate-300" aria-label="사업자등록과 사업소득이 있음">
+                        <span class="text-xs text-slate-700">사업자등록이 있고 사업소득이 있음 (1원이라도 있으면 탈락)</span>
                     </label>
                 </div>
 
@@ -227,16 +234,16 @@
                 <div class="bg-white rounded-2xl p-6 shadow-md border-2 border-cyan-500/30">
                     <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-3">
                         <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">피부양자 자격 판정 결과</span>
-                        <span id="qualBadge" class="text-xs font-black px-2.5 py-1 rounded bg-rose-100 text-rose-800">자격 탈락 (지역 전환 고지)</span>
+                        <span id="qualBadge" class="text-xs font-black px-2.5 py-1 rounded bg-rose-100 text-rose-800">피부양자 탈락 (지역가입자 전환)</span>
                     </div>
 
                     <div class="mb-4">
                         <span class="text-xs text-slate-500 block mb-1">탈락 시 매월 예상 지역건보료 고지액</span>
                         <div class="flex items-baseline gap-2">
-                            <span id="resTotalHealthBill" class="text-3xl sm:text-4xl font-black text-cyan-600">273,271</span>
+                            <span id="resTotalHealthBill" class="text-3xl sm:text-4xl font-black text-cyan-600">287,850</span>
                             <span class="text-lg font-bold text-slate-800">원 / 월</span>
                         </div>
-                        <span class="text-xs text-slate-500">연간 고정 지출: <span id="resAnnualBill" class="font-bold text-slate-900">3,279,255원</span></span>
+                        <span class="text-xs text-slate-500">연간 고정 지출: <span id="resAnnualBill" class="font-bold text-slate-900">3,454,204원</span></span>
                     </div>
 
                     <!-- Breakdown Table -->
@@ -247,30 +254,30 @@
                         </div>
                         <div class="flex justify-between text-slate-600">
                             <span>소득 기준 판정 (연 2,000만 원 이하)</span>
-                            <span id="resIncomePass" class="font-bold text-rose-600">기준 초과 (연 2천만 원 초과)</span>
+                            <span id="resIncomePass" class="font-bold text-rose-600">미충족 (연 2천만 원 초과)</span>
                         </div>
                         <div class="flex justify-between text-slate-600">
                             <span>재산세 과세표준 (5.4억/9억)</span>
-                            <span id="resPropertyPass" class="font-bold text-emerald-600">3.6억 원 (5.4억/9억 기준)</span>
+                            <span id="resPropertyPass" class="font-bold text-emerald-600">3억 6,000만 원 (충족)</span>
                         </div>
                         <div class="flex justify-between text-slate-700 pt-2 border-t border-slate-100">
                             <span>월 소득보험료 (연금 50% 인정, 7.19%)</span>
                             <span id="resIncomeFee" class="font-bold text-slate-900">115,040원</span>
                         </div>
                         <div class="flex justify-between text-slate-700">
-                            <span>월 재산보험료 (과표 1억 공제 후 785점)</span>
-                            <span id="resPropertyFee" class="font-bold text-slate-900">126,900원</span>
+                            <span>월 재산보험료 (과표 1억 공제 후 <span id="propPointsText">659</span>점 × 211.5원)</span>
+                            <span id="resPropertyFee" class="font-bold text-slate-900">139,379원</span>
                         </div>
                         <div class="flex justify-between text-slate-700">
-                            <span>장기요양보험료 (건보료의 12.95%)</span>
-                            <span id="resLtcFee" class="font-bold text-slate-900">31,331원</span>
+                            <span>장기요양보험료 (건보료의 13.14%)</span>
+                            <span id="resLtcFee" class="font-bold text-slate-900">33,432원</span>
                         </div>
                     </div>
 
                     <!-- Strategic Advice -->
                     <div id="adviceBox" class="p-3 bg-cyan-50 rounded-xl border border-cyan-200 text-xs text-cyan-900 space-y-1">
-                        <span class="font-bold block">💡 은퇴자 건보료 방어 솔루션</span>
-                        <p id="adviceText">공적연금 분산(사적연금 IRP 이전 등)을 통해 연간 2,000만 원 이하로 유지할 경우 연간 약 3,279,255원의 건보료를 지킬 수 있습니다.</p>
+                        <span class="font-bold block">💡 결과 풀이</span>
+                        <p id="adviceText">피부양자에서 빠지면 지역보험료로 월 약 287,850원, 연 약 3,454,204원을 냅니다.</p>
                     </div>
 
                     <button id="copyResultBtn" type="button" class="w-full mt-4 py-3 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-2 transition whitespace-nowrap">
@@ -299,6 +306,20 @@
         </section>
     
 
+                <!-- KIRO:HD-BASIS START -->
+        <section class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200" style="margin-top:24px">
+            <h2 class="text-lg font-bold text-slate-900 mb-4">계산 기준과 이 계산기가 반영하지 않는 것</h2>
+            <ul class="text-xs sm:text-sm text-slate-600" style="list-style:disc;padding-left:1.25em;line-height:1.7">
+                <li>피부양자 소득요건: 소득 합계가 연 2,000만 원 이하이고 사업소득이 없어야 합니다. 사업자등록이 없으면 사업소득 연 500만 원까지는 없는 것으로 보지만, 주택임대소득은 이 예외가 없습니다. 기혼자는 부부 모두 충족해야 합니다(시행규칙 별표 1의2 제1호).</li>
+                <li>재산요건: 재산세 과세표준 합계가 5억 4천만 원 이하이거나, 5억 4천만 원 초과 9억 원 이하이면서 소득이 연 1,000만 원 이하여야 합니다(같은 별표 제2호).</li>
+                <li>소득 산정: 피부양자 판정에는 공적연금 전액, 지역보험료에는 연금의 50%를 넣습니다. 이자·배당소득은 합계가 연 1,000만 원 이하이면 넣지 않습니다(시행규칙 제44조). 연금소득은 보통 전년도 자료로 반영합니다(시행령 제41조 제3항).</li>
+                <li>보험료: 소득월액 × 7.19%와 재산 점수 × 211.5원을 더합니다(시행령 제44조). 재산 점수는 과세표준 합계에서 1억 원을 뺀 금액을 60등급 점수표(시행령 별표 4)에 넣어 구합니다. 소득월액이 28만 원 이하면 소득 부분은 최저보험료 20,160원입니다(시행규칙 제44조 제3항, 보건복지부 고시 제2025-222호). 장기요양보험료는 건강보험료 × 0.9448% ÷ 7.19%, 곧 13.14%입니다(노인장기요양보험법 제9조, 시행령 제4조).</li>
+                <li>재산세 과세표준: 주택은 공시가의 60%, 2026년 1세대 1주택은 43~45%, 토지·건축물은 70%입니다(지방세법 시행령 제109조). 과세표준 상한제 때문에 실제 과표는 더 낮을 수 있으니, 재산세 고지서가 있으면 '과세표준 직접 입력'을 고르세요.</li>
+                <li>반영하지 않는 것: 근로·기타·사업·주택임대소득 금액, 전월세 보증금, 주택담보대출 공제, 형제자매 기준(과표 1억 8천만 원), 보험료 경감·감면.</li>
+            </ul>
+            <p style="margin-top:12px;font-size:12px;color:#64748b">확인일: 2026년 10월 31일 · 출처(국가법령정보센터): <a href="https://www.law.go.kr/법령/국민건강보험법시행령" target="_blank" rel="noopener" style="text-decoration:underline">국민건강보험법 시행령</a> · <a href="https://www.law.go.kr/법령/국민건강보험법시행규칙" target="_blank" rel="noopener" style="text-decoration:underline">시행규칙</a> · <a href="https://www.law.go.kr/법령/노인장기요양보험법시행령" target="_blank" rel="noopener" style="text-decoration:underline">노인장기요양보험법 시행령</a> · <a href="https://www.law.go.kr/법령/지방세법시행령" target="_blank" rel="noopener" style="text-decoration:underline">지방세법 시행령</a> · <a href="https://www.law.go.kr/행정규칙/월별건강보험료액의상한과하한에관한고시" target="_blank" rel="noopener" style="text-decoration:underline">월별 건강보험료액의 상한과 하한에 관한 고시</a></p>
+        </section>
+        <!-- KIRO:HD-BASIS END -->
         <!-- PAGE:EXTRA START -->
         <!-- Extra Statutory Analysis & Comparison Block -->
         <section class="extra-section space-y-6">
@@ -308,7 +329,7 @@
                         <span class="w-2 h-4 bg-cyan-600 rounded-full"></span>
                         월 공적연금 수령액별 피부양자 판정 & 지역건보료 비교표
                     </h3>
-                    <span class="text-[11px] text-slate-500 font-medium">재산 6억 원 · 금융 1200만 원 기준</span>
+                    <span class="text-[11px] text-slate-500 font-medium">공시가 6억 원 (주택 60%) · 금융소득 1,200만 원 기준</span>
                 </div>
                 <div class="extra-table-wrap">
                     <table class="extra-table">
@@ -326,48 +347,48 @@
                 <td class="td-col1">월 150만<br><span class="text-[10px] text-slate-500 font-normal">(1,800만)</span></td>
                 <td style="text-align:center;"><span class="px-1.5 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-800">탈락</span></td>
                 <td class="td-val">125,825원</td>
-                <td class="td-val">126,900원</td>
-                <td class="td-val font-bold text-cyan-700">285,453원</td>
+                <td class="td-val">139,379원</td>
+                <td class="td-val font-bold text-cyan-700">300,052원</td>
             </tr>
             <tr>
                 <td class="td-col1">월 166만<br><span class="text-[10px] text-slate-500 font-normal">(1,992만)</span></td>
                 <td style="text-align:center;"><span class="px-1.5 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-800">탈락</span></td>
                 <td class="td-val">131,577원</td>
-                <td class="td-val">126,900원</td>
-                <td class="td-val font-bold text-cyan-700">291,950원</td>
+                <td class="td-val">139,379원</td>
+                <td class="td-val font-bold text-cyan-700">306,560원</td>
             </tr>
             <tr>
                 <td class="td-col1">월 170만<br><span class="text-[10px] text-slate-500 font-normal">(2,040만)</span></td>
                 <td style="text-align:center;"><span class="px-1.5 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-800">탈락</span></td>
                 <td class="td-val">133,015원</td>
-                <td class="td-val">126,900원</td>
-                <td class="td-val font-bold text-cyan-700">293,574원</td>
+                <td class="td-val">139,379원</td>
+                <td class="td-val font-bold text-cyan-700">308,187원</td>
             </tr>
             <tr>
                 <td class="td-col1">월 200만<br><span class="text-[10px] text-slate-500 font-normal">(2,400만)</span></td>
                 <td style="text-align:center;"><span class="px-1.5 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-800">탈락</span></td>
                 <td class="td-val">143,800원</td>
-                <td class="td-val">126,900원</td>
-                <td class="td-val font-bold text-cyan-700">305,756원</td>
+                <td class="td-val">139,379원</td>
+                <td class="td-val font-bold text-cyan-700">320,389원</td>
             </tr>
             <tr>
                 <td class="td-col1">월 250만<br><span class="text-[10px] text-slate-500 font-normal">(3,000만)</span></td>
                 <td style="text-align:center;"><span class="px-1.5 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-800">탈락</span></td>
                 <td class="td-val">161,775원</td>
-                <td class="td-val">126,900원</td>
-                <td class="td-val font-bold text-cyan-700">326,058원</td>
+                <td class="td-val">139,379원</td>
+                <td class="td-val font-bold text-cyan-700">340,726원</td>
             </tr>
             <tr>
                 <td class="td-col1">월 300만<br><span class="text-[10px] text-slate-500 font-normal">(3,600만)</span></td>
                 <td style="text-align:center;"><span class="px-1.5 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-800">탈락</span></td>
                 <td class="td-val">179,750원</td>
-                <td class="td-val">126,900원</td>
-                <td class="td-val font-bold text-cyan-700">346,361원</td>
+                <td class="td-val">139,379원</td>
+                <td class="td-val font-bold text-cyan-700">361,063원</td>
             </tr>
                         </tbody>
                     </table>
                 </div>
-                <p class="text-[11px] text-slate-400 mt-2">* 연금 50% 인정(7.19%) 및 재산세 과표 1억 기본공제, 장기요양보험료(12.95%) 포함 모의 산출 기준입니다.</p>
+                <p class="text-[11px] text-slate-400 mt-2">* 연금 50% 반영, 보험료율 7.19%, 재산은 과표에서 1억 원을 뺀 금액의 시행령 별표 4 점수 × 211.5원, 장기요양보험료(건강보험료의 13.14%) 포함. 2026년 10월 31일 확인한 법령 기준 모의 계산입니다.</p>
             </div>
 
             <div class="checkpoints-card">
@@ -376,7 +397,7 @@
                     핵심 국민건강보험법 법정 체크포인트
                 </h3>
                 <ul class="text-xs sm:text-sm text-slate-700 space-y-2">
-                <li class="flex items-start gap-2"><span class="text-cyan-600 font-bold shrink-0">✓</span><span>국민건강보험법 시행령 제41조 규정에 따라 금융소득(이자·배당)은 연간 1,000만 원 이하인 경우 건보료 산정 소득에서 전액 제외됩니다.</span></li>
+                <li class="flex items-start gap-2"><span class="text-cyan-600 font-bold shrink-0">✓</span><span>국민건강보험법 시행규칙 제44조 제1항에 따라 이자·배당소득 합계가 연 1,000만 원 이하이면 소득에 넣지 않습니다.</span></li>
                 <li class="flex items-start gap-2"><span class="text-cyan-600 font-bold shrink-0">✓</span><span>금융소득이 연간 1,000만 원을 1원이라도 초과하면 초과분이 아닌 총 금융소득 전액이 합산 소득으로 산입됩니다.</span></li>
                 <li class="flex items-start gap-2"><span class="text-cyan-600 font-bold shrink-0">✓</span><span>월 연금 120만 원(연 1,440만 원) 수령자가 금융소득 1,200만 원 발생 시 합산소득 2,640만 원으로 연 2,000만 원 한도를 넘어 탈락합니다.</span></li>
                 </ul>
@@ -412,17 +433,6 @@
         </section>
         <!-- PAGE:SUBLINKS END -->
 
-    <!-- 심층 가이드북 바로가기 (4-1-4 헌법 준수) -->
-    <div class="mt-8 mb-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl border border-blue-100 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <div>
-        <span class="inline-block px-3 py-1 bg-blue-600 text-white text-xs font-bold rounded-full mb-2">2026 실무 가이드</span>
-        <h3 class="text-lg font-bold text-gray-900">공식 기준과 상세 산식이 궁금하신가요?</h3>
-        <p class="text-xs text-gray-600 mt-1">2026 은퇴자 건강보험 피부양자 판정 & 지역건보료 계산기의 최신 법정 고시, 감면 혜택, 실무 체크리스트를 확인해보세요.</p>
-      </div>
-      <a href="/guides/guide.html" class="whitespace-nowrap px-5 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl shadow-md transition flex items-center gap-2 text-xs shrink-0">
-        심층 가이드북 읽기 &rarr;
-      </a>
-    </div>
 
   
     <!-- ADSENSE START: mid -->
@@ -442,7 +452,7 @@
           <span class="text-blue-600 group-open:rotate-180 transition transform">▼</span>
         </summary>
         <p class="mt-3 text-gray-600 text-xs leading-relaxed">
-          네, 비과세 및 분리과세 기준에 의해 금융소득이 연 1,000만 원 이하인 경우 피부양자 소득 판정에서 제외됩니다.
+          네. 시행규칙 제44조 제1항 단서에 따라 이자·배당소득 합계가 연 1,000만 원 이하이면 소득에 넣지 않으므로, 피부양자 판정과 지역보험료 모두에 반영되지 않습니다.
         </p>
       </details>
       <details class="bg-gray-50 p-4 rounded-xl border border-gray-200 group">
@@ -460,7 +470,7 @@
           <span class="text-blue-600 group-open:rotate-180 transition transform">▼</span>
         </summary>
         <p class="mt-3 text-gray-600 text-xs leading-relaxed">
-          조세특례제한법상 비과세 또는 분리과세 혜택이 적용되는 금융계좌 수익은 건보료 부과소득 합산에서 제외됩니다.
+          법령상 비과세 소득은 소득 산정에서 빠집니다(시행령 제41조 제1항). ISA처럼 분리과세되는 수익을 어떻게 보는지는 이 사이트가 법령 원문에서 확인하지 못했으니 공단에 확인하세요.
         </p>
       </details>
       <!-- PAGE:FAQ END -->
@@ -501,7 +511,7 @@
                 <span>·</span>
                 <a class="hover:text-indigo-600 transition-colors" href="/terms.html">서비스 이용약관</a>
             </div>
-            <p>본 계산기는 관계 법령 및 공인 고시를 기준으로 작성된 모의 시뮬레이터이며 실제 행정 심사 결과와 상이할 수 있습니다.</p>
+            <p>이 계산기는 2026년 10월 31일 확인한 법령으로 만든 모의 계산이며, 실제 판정과 고지액은 공단 자료에 따라 다를 수 있습니다.</p>
             <p class="text-[11px] text-slate-400">© 2026 2026 은퇴자 건보 피부양자 탈락 판정기 & 지역건보료 계산기. All rights reserved.</p>
         </div>
     </footer>
@@ -524,107 +534,124 @@
             });
         });
 
-        // Simplified 60-grade property points calculation for Korea National Health Insurance
-        function getPropertyPoints(taxBaseAfterExempt) {
-            if (taxBaseAfterExempt <= 0) return 0;
-            let valM = taxBaseAfterExempt / 100000000; // in 100m KRW
-            if (valM <= 0.5) return 220;
-            if (valM <= 1.0) return 310;
-            if (valM <= 2.0) return 460;
-            if (valM <= 3.0) return 600;
-            if (valM <= 4.0) return 785; // 3.8억 -> 785 points
-            if (valM <= 6.0) return 980;
-            if (valM <= 9.0) return 1200;
-            return 1450;
+        // ---- 2026년 기준: 국가법령정보센터에서 2026년 10월 31일 확인 ----
+        const RATE = 0.0719;              // 국민건강보험법 시행령 제44조 제1항: 보험료율 1만분의 719
+        const POINT_WON = 211.5;          // 같은 조 제2항: 재산보험료부과점수당 금액 211.5원
+        const LTC_RATIO = 0.9448 / 7.19;  // 노인장기요양보험법 제9조, 시행령 제4조: 장기요양보험료율 0.9448% ÷ 건강보험료율 7.19% (13.14%)
+        const FLOOR = 20160;              // 지역가입자 월별 보험료 하한 (보건복지부 고시 제2025-222호)
+        const CAP = 4591740;              // 지역가입자 월별 보험료 상한 (같은 고시)
+        const DEFAULT_PROP_TYPE = 'house';
+        // 시행령 별표 4 재산등급별 점수: [재산금액 상한(만원), 점수]. 778,124만 원 초과는 60등급 2,341점
+        const PROP_GRADES = [[450, 22], [900, 44], [1350, 66], [1800, 97], [2250, 122], [2700, 146], [3150, 171], [3600, 195], [4050, 219], [4500, 244], [5020, 268], [5590, 294], [6220, 320], [6930, 344], [7710, 365], [8590, 386], [9570, 412], [10700, 439], [11900, 465], [13300, 490], [14800, 516], [16400, 535], [18300, 559], [20400, 586], [22700, 611], [25300, 637], [28100, 659], [31300, 681], [34900, 706], [38800, 731], [43200, 757], [48100, 785], [53600, 812], [59700, 841], [66500, 881], [74000, 921], [82400, 961], [91800, 1001], [103000, 1041], [114000, 1091], [127000, 1141], [142000, 1191], [158000, 1241], [176000, 1291], [196000, 1341], [218000, 1391], [242000, 1451], [270000, 1511], [300000, 1571], [330000, 1641], [363000, 1711], [399300, 1781], [439230, 1851], [483153, 1921], [531468, 1991], [584615, 2061], [643077, 2131], [707385, 2201], [778124, 2271]];
+        function getPropertyPoints(amount) {
+            if (amount <= 0) return 0;
+            for (const [upper, pts] of PROP_GRADES) {
+                if (amount <= upper * 10000) return pts;
+            }
+            return 2341;
+        }
+        // 재산세 과세표준 = 시가표준액 × 공정시장가액비율 (지방세법 시행령 제109조, 2026년)
+        function fairRatioPct(type, price) {
+            if (type === 'one') return price <= 300000000 ? 43 : (price <= 600000000 ? 44 : 45);
+            if (type === 'land') return 70;
+            if (type === 'base') return 100;
+            return 60;
+        }
+        function fmvLabel(type, pct) {
+            if (type === 'one') return '1세대 1주택 ' + pct + '%';
+            if (type === 'land') return '토지·건축물 70%';
+            if (type === 'base') return '직접 입력한 금액';
+            return '주택 60%';
+        }
+        function eokText(won) {
+            const eok = Math.floor(won / 100000000);
+            const man = Math.floor((won % 100000000) / 10000);
+            if (eok && man) return eok + '억 ' + man.toLocaleString('ko-KR') + '만 원';
+            if (eok) return eok + '억 원';
+            return man.toLocaleString('ko-KR') + '만 원';
+        }
+        function setPass(id, ok, text) {
+            const el = document.getElementById(id);
+            el.textContent = text;
+            el.className = 'font-bold ' + (ok ? 'text-emerald-600' : 'text-rose-600');
         }
 
         function calculate() {
             const mPension = parseNum(document.getElementById('monthlyPension').value);
             const finIncome = parseNum(document.getElementById('annualFinanceIncome').value);
             const propPrice = parseNum(document.getElementById('propertyPrice').value);
+            const propType = document.getElementById('propType').value;
             const hasBiz = document.getElementById('hasBizReg').checked;
 
             const annualPension = mPension * 12;
             document.getElementById('annualPensionText').textContent = fmtNum(annualPension) + '원';
-
-            // Fin income added if > 10m
+            // 이자·배당소득은 합계가 연 1,000만 원 이하이면 넣지 않는다 (시행규칙 제44조 제1항 단서)
             const countedFinIncome = finIncome > 10000000 ? finIncome : 0;
+            // 피부양자 소득요건에는 공적연금 전액이 들어간다 (시행령 제41조 제1항 제5호)
             const totalIncome = annualPension + countedFinIncome;
             document.getElementById('resTotalIncome').textContent = fmtNum(totalIncome) + '원';
 
-            // Property Tax Base (60% of official price)
-            const taxBase = propPrice * 0.60;
+            const pct = fairRatioPct(propType, propPrice);
+            const taxBase = Math.floor(propPrice * pct / 100);
+            document.getElementById('propertyLabel').textContent = propType === 'base' ? '재산세 과세표준 합계 (재산세 고지서 금액)' : '보유 부동산 공시가격 (시가표준액)';
+            document.getElementById('fmvText').textContent = fmvLabel(propType, pct);
             document.getElementById('taxBaseText').textContent = fmtNum(taxBase) + '원';
 
-            // Qualification Check
-            let isIncomePassed = totalIncome <= 20000000;
-            let isPropertyPassed = false;
+            // 시행규칙 별표 1의2: 소득 연 2,000만 원 이하·사업소득 없음 / 과표 5.4억 원 이하, 또는 5.4억 원 초과 9억 원 이하이면서 소득 연 1,000만 원 이하
+            const incomeOk = !hasBiz && totalIncome <= 20000000;
+            let propOk, propNote;
+            if (taxBase <= 540000000) { propOk = true; propNote = '충족'; }
+            else if (taxBase <= 900000000) { propOk = totalIncome <= 10000000; propNote = propOk ? '충족, 소득 1천만 원 이하' : '미충족, 소득 1천만 원 초과'; }
+            else { propOk = false; propNote = '미충족, 9억 원 초과'; }
+            const isQualified = incomeOk && propOk;
+            setPass('resIncomePass', incomeOk, hasBiz ? '사업소득 있음 (미충족)' : (incomeOk ? '충족 (연 2천만 원 이하)' : '미충족 (연 2천만 원 초과)'));
+            setPass('resPropertyPass', propOk, eokText(taxBase) + ' (' + propNote + ')');
 
-            if (taxBase <= 540000000) {
-                isPropertyPassed = isIncomePassed;
-            } else if (taxBase <= 900000000) {
-                isPropertyPassed = (totalIncome <= 10000000);
-            } else {
-                isPropertyPassed = false;
-            }
+            // 지역보험료: 연금소득은 50%만 넣는다 (시행규칙 제44조 제2항·제3항)
+            const monthlyIncome = (annualPension * 0.5 + countedFinIncome) / 12;
+            const floorApplied = monthlyIncome <= 280000;   // 소득월액 28만 원 이하: 최저보험료 (시행규칙 제44조 제3항 단서)
+            const monthlyIncomeFee = floorApplied ? FLOOR : monthlyIncome * RATE;
+            const propPoints = getPropertyPoints(Math.max(0, taxBase - 100000000));   // 별표 4: 과세표준 합계에서 1억 원을 뺀다
+            const monthlyPropFee = propPoints * POINT_WON;
+            const baseHealthBill = Math.min(Math.max(monthlyIncomeFee + monthlyPropFee, FLOOR), CAP);
+            const ltcFee = baseHealthBill * LTC_RATIO;
+            const totalMonthlyBill = baseHealthBill + ltcFee;
 
-            if (hasBiz) {
-                isIncomePassed = false;
-                isPropertyPassed = false;
-            }
-
-            const isQualified = isIncomePassed && isPropertyPassed;
-
+            const badge = document.getElementById('qualBadge');
             if (isQualified) {
-                document.getElementById('qualBadge').textContent = '피부양자 자격 유지 적격';
-                document.getElementById('qualBadge').className = 'text-xs font-black px-2.5 py-1 rounded bg-emerald-100 text-emerald-800';
-                document.getElementById('resIncomePass').textContent = '기준 충족 (2천만 이하)';
-                document.getElementById('resIncomePass').className = 'font-bold text-emerald-600';
+                badge.textContent = '피부양자 유지 가능';
+                badge.className = 'text-xs font-black px-2.5 py-1 rounded bg-emerald-100 text-emerald-800';
+                ['resIncomeFee', 'resPropertyFee', 'resLtcFee'].forEach(id => { document.getElementById(id).textContent = '0원'; });
+                document.getElementById('propPointsText').textContent = '-';
                 document.getElementById('resTotalHealthBill').textContent = '0';
-                document.getElementById('resAnnualBill').textContent = '0원 (직장 피부양자 유지)';
-                document.getElementById('resIncomeFee').textContent = '0원';
-                document.getElementById('resPropertyFee').textContent = '0원';
-                document.getElementById('resLtcFee').textContent = '0원';
-                document.getElementById('adviceText').textContent = '현재 피부양자 요건을 충족하여 월 건보료가 부과되지 않습니다. 공적연금 인상 시 연 2,000만 원을 초과하지 않도록 유의하세요.';
+                document.getElementById('resAnnualBill').textContent = '0원 (피부양자 유지)';
+                document.getElementById('adviceText').textContent = '피부양자 요건을 충족해 이 조건에서는 건강보험료가 없습니다. 공단은 연금소득을 보통 전년도 자료로 보므로, 연금이 오르는 해에는 기준을 넘지 않는지 다시 확인하세요.';
             } else {
-                document.getElementById('qualBadge').textContent = '자격 탈락 (지역 전환 고지)';
-                document.getElementById('qualBadge').className = 'text-xs font-black px-2.5 py-1 rounded bg-rose-100 text-rose-800';
-                document.getElementById('resIncomePass').textContent = hasBiz ? '사업자등록 탈락' : '기준 초과 (연 2천만 원 초과)';
-                document.getElementById('resIncomePass').className = 'font-bold text-rose-600';
-
-                // Calculate Local Insurance
-                // 1. Income part: pension 50% included, 7.19% rate / 12
-                const countedPensionForFee = annualPension * 0.50;
-                const monthlyIncomeFee = ((countedPensionForFee + countedFinIncome) * 0.0719) / 12;
-
-                // 2. Property part: exempt 100m KRW
-                const taxableProp = Math.max(0, taxBase - 100000000);
-                const propPoints = getPropertyPoints(taxableProp);
-                const monthlyPropFee = propPoints * 211.5;
-
-                const baseHealthBill = monthlyIncomeFee + monthlyPropFee;
-                const ltcFee = baseHealthBill * 0.1295;
-                const totalMonthlyBill = baseHealthBill + ltcFee;
-
+                badge.textContent = '피부양자 탈락 (지역가입자 전환)';
+                badge.className = 'text-xs font-black px-2.5 py-1 rounded bg-rose-100 text-rose-800';
                 document.getElementById('resIncomeFee').textContent = fmtNum(monthlyIncomeFee) + '원';
                 document.getElementById('resPropertyFee').textContent = fmtNum(monthlyPropFee) + '원';
                 document.getElementById('resLtcFee').textContent = fmtNum(ltcFee) + '원';
+                document.getElementById('propPointsText').textContent = propPoints.toLocaleString('ko-KR');
                 document.getElementById('resTotalHealthBill').textContent = fmtNum(totalMonthlyBill);
                 document.getElementById('resAnnualBill').textContent = fmtNum(totalMonthlyBill * 12) + '원';
-                document.getElementById('adviceText').textContent = '공적연금 분산(사적연금 IRP 이전 등)을 통해 연간 2,000만 원 이하로 유지할 경우 연간 약 ' + fmtNum(totalMonthlyBill * 12) + '원의 건보료를 지킬 수 있습니다.';
+                document.getElementById('adviceText').textContent = '피부양자에서 빠지면 지역보험료로 월 약 ' + fmtNum(totalMonthlyBill) + '원, 연 약 ' + fmtNum(totalMonthlyBill * 12) + '원을 냅니다.'
+                    + (hasBiz ? ' 사업소득 금액은 계산에 넣지 않았으니 실제로는 더 많습니다.' : '')
+                    + (floorApplied ? ' 소득월액이 28만 원 이하라 소득 부분은 최저보험료 20,160원으로 계산했습니다.' : '');
             }
-
-            document.getElementById('resPropertyPass').textContent = (taxBase / 100000000).toFixed(1) + '억 원 (5.4억/9억 기준)';
         }
+
+        document.getElementById('propType').addEventListener('change', calculate);
 
         document.getElementById('hasBizReg').addEventListener('change', calculate);
         document.getElementById('calcBtn').addEventListener('click', calculate);
 
         document.getElementById('resetBtn').addEventListener('click', () => {
-            document.getElementById('monthlyPension').value = '1,800,000';
-            document.getElementById('annualFinanceIncome').value = '0';
-            document.getElementById('propertyPrice').value = '800,000,000';
+            document.getElementById('monthlyPension').value = '1,200,000';
+            document.getElementById('annualFinanceIncome').value = '12,000,000';
+            document.getElementById('propertyPrice').value = '600,000,000';
             document.getElementById('hasBizReg').checked = false;
+            document.getElementById('propType').value = DEFAULT_PROP_TYPE;
             calculate();
             showToastNotification('기본 입력값으로 초기화되었습니다.');
         });
